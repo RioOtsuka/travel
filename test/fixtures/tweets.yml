@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  spot: MyText
+  image: MyString
+  score: 1
+  body: MyText
+  lat: 1
+  lng: 1
+  user_id: 1
+
+two:
+  spot: MyText
+  image: MyString
+  score: 1
+  body: MyText
+  lat: 1
+  lng: 1
+  user_id: 1
