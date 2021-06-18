@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-    before_action :authenticate_user!, only: [:index, :show, :new, :create]
+    before_action :authenticate_user!, only: [:new, :create]
 
     
     def index
@@ -10,6 +10,7 @@ class TweetsController < ApplicationController
           else
             @tweets = Tweet.all.page(params[:page]).per(3)
           end
+
     end
 
     def new
@@ -31,6 +32,7 @@ class TweetsController < ApplicationController
         @tweet = Tweet.find(params[:id])
         @comments = @tweet.comments
         @comment = Comment.new
+        
     end
 
     def edit
@@ -54,7 +56,7 @@ class TweetsController < ApplicationController
 
     private
     def tweet_params
-      params.require(:tweet).permit(:score, :image, :spot, :body, :address)
+      params.require(:tweet).permit(:score, :image, :spot, :body, :address, :prefecture)
     end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_063523) do
+ActiveRecord::Schema.define(version: 2021_06_18_013411) do
 
   create_table "comments", force: :cascade do |t|
     t.string "content"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_063523) do
     t.integer "tweet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "rate"
     t.index ["tweet_id"], name: "index_comments_on_tweet_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -44,12 +45,14 @@ ActiveRecord::Schema.define(version: 2021_06_04_063523) do
     t.string "image"
     t.integer "score"
     t.text "body"
-    t.integer "lat"
-    t.integer "lng"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "user_id"
+    t.string "prefecture"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "address"
+    t.integer "prefecture_id"
   end
 
   create_table "users", force: :cascade do |t|
