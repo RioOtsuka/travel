@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_013411) do
     t.integer "tweet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rate"
+    t.float "rate"
     t.index ["tweet_id"], name: "index_comments_on_tweet_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end

@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
           else
             @tweets = Tweet.all.page(params[:page]).per(3)
           end
-
+         
     end
 
     def new

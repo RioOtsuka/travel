@@ -65,21 +65,22 @@
   <p>コメント一覧</p>
   <% @comments.each do |c| %>
     <div>
-      <%= c.user.email unless c.user.blank? %>
-      <br>
-      <%= c.content %>
-      <h4 class="mb-3">評価：<%= c.rate %>点 </h4>
+     <h4 class="mb-3">評価：<%= c.rate %>点 </h4>
     <div id="star-rate-<%= c.id %>"></div>
     <script>
           $('#star-rate-<%= c.id %>').raty({
             size: 36,
-            starOff:  "<%= asset_path('star-off.png') %>",
-            starOn : "<%= asset_path('star-on.png') %>",
-            starHalf: "<%= asset_path('star-half.png') %>",
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            readOnly: true,
             half: true,
             score: <%= c.rate %>
         });
     </script> 
+    <%= c.user.email unless c.user.blank? %>
+    <br>
+    <%= c.content %>
     </div>
       <br>
   <% end %>
@@ -94,10 +95,12 @@
     <script>
         $('#star').raty({
             size     : 36,
-            starOff:  "<%= asset_path('star-off.png') %>",
-            starOn : "<%= asset_path('star-on.png') %>",
-            starHalf: "<%= asset_path('star-half.png') %>",
-            scoreName: 'comment[rate]'
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            scoreName: 'comment[rate]',
+            half: true,
+
         });
     </script>
     
